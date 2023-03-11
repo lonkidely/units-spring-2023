@@ -9,3 +9,13 @@ exports[`Button render should contain sort text 1`] = `
   </button>
 </DocumentFragment>
 `;
+
+exports[`Button render should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="sort-button"
+  >
+    Сортировать по умолчанию
+  </button>
+</DocumentFragment>
+`;
