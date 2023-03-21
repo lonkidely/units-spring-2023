@@ -5,19 +5,15 @@ import { MainPage } from './MainPage';
 import { getNextSortBy, updateCategories } from '../../utils';
 import { Category } from '../../types';
 
-jest.mock('../../utils/getNextSortBy', () => {
-    return {
-        __esModule: true,
-        getNextSortBy: jest.fn(() => 'по умолчанию'),
-    };
-});
+jest.mock('../../utils/getNextSortBy', () => ({
+    __esModule: true,
+    getNextSortBy: jest.fn(() => 'по умолчанию'),
+}));
 
-jest.mock('../../utils/updateCategories', () => {
-    return {
-        __esModule: true,
-        updateCategories: jest.fn((categories, category) => []),
-    };
-});
+jest.mock('../../utils/updateCategories', () => ({
+    __esModule: true,
+    updateCategories: jest.fn((categories, category) => []),
+}));
 
 beforeAll(() => jest.useFakeTimers().setSystemTime(new Date('2000-01-09T04:54:00')));
 
@@ -44,6 +40,10 @@ describe('Testing MainPage', () => {
         const category = renderPage
             .getAllByText('Для дома')
             .find((el) => el.classList.contains('categories__badge'));
+
+        expect(category).toBeDefined();
+        expect(category?.innerHTML).toEqual('Для дома');
+
         if (!category) {
             return;
         }

@@ -15,7 +15,7 @@ describe('Button render', () => {
                 onSortButtonClick={onSortButtonClick}
             />
         );
-
+        expect(onSortButtonClick).toHaveBeenCalledTimes(0);
         expect(rendered.asFragment()).toMatchSnapshot();
     });
 

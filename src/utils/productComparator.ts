@@ -1,5 +1,6 @@
 import type { Product, SortBy } from '../types';
 
+// export для тестов
 export const getProductRUBPrice = (product: Product) =>
     product.priceSymbol === '$' ? product.price * 70 : product.price;
 
